@@ -21,5 +21,17 @@ func All() []seed.Seed {
 				return CreateUser(db, "John", 30)
 			},
 		},
+		{
+			Name: "CreateRick",
+			Run: func(db *gorm.DB) error {
+				return CreateContact(db, "John", 30, "123456789", "Caracas-Venezuela", "email@email.com", "desc1")
+			},
+		},
+		{
+			Name: "CreateMike",
+			Run: func(db *gorm.DB) error {
+				return CreateContact(db, "Mike", 29, "123456789", "Caracas-Venezuela", "email@email.com", "desc2")
+			},
+		},
 	}
 }

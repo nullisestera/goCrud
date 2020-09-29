@@ -6,12 +6,19 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// SetContactsRoutes agrega las rutas de contactos
-func SetContactsRoutes(r *mux.Router) {
+// SetRoutes agrega las rutas
+func SetRoutes(r *mux.Router) {
 	subRouter := r.PathPrefix("/api").Subrouter()
+	// Contacts
 	subRouter.HandleFunc("/contacts/{id}", controllers.GetContact).Methods("GET")
 	subRouter.HandleFunc("/contacts", controllers.GetContacts).Methods("GET")
 	subRouter.HandleFunc("/contacts", controllers.StoreContact).Methods("POST")
 	subRouter.HandleFunc("/contacts/{id}", controllers.UpdateContact).Methods("PUT")
 	subRouter.HandleFunc("/contacts/{id}", controllers.DeleteContact).Methods("DELETE")
+	// Users
+	subRouter.HandleFunc("/users/{id}", controllers.GetUser).Methods("GET")
+	subRouter.HandleFunc("/users", controllers.GetUsers).Methods("GET")
+	subRouter.HandleFunc("/users", controllers.StoreUser).Methods("POST")
+	subRouter.HandleFunc("/users/{id}", controllers.UpdateUser).Methods("PUT")
+	subRouter.HandleFunc("/users/{id}", controllers.DeleteUser).Methods("DELETE")
 }

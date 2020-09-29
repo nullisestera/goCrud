@@ -15,8 +15,8 @@ func main() {
 	utils.MigrateDB()
 	// router para el manejo de las rutas de la aplicacion
 	r := mux.NewRouter()
-	// se agregan las rutas de contactos
-	routes.SetContactsRoutes(r)
+	// se agregan las rutas
+	routes.SetRoutes(r)
 	// generacion de un nuevo servidor, especificamos el puerto y las rutas
 	srv := http.Server{
 		Addr:    ":4000",

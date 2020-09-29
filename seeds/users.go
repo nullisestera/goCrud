@@ -6,7 +6,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-// CreateContact function
+// CreateUser function
 func CreateUser(db *gorm.DB, name string, age uint) error {
 	return db.Create(&models.User{
 		Name: name,
